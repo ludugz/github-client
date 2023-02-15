@@ -1,16 +1,20 @@
 package ludugz.simplegithubclient.ui.userdetail.screen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.compose.rememberAsyncImagePainter
 import ludugz.simplegithubclient.common.UserState
 import ludugz.simplegithubclient.ui.userdetail.UserDetailViewModel
 
@@ -29,22 +33,40 @@ fun UserDetailScreen(
                     .padding(10.dp)
             ) {
                 item {
-                    Row(
+                    Column(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(20.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.SpaceBetween
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Top,
                     ) {
                         Text(
-                            text = "User: ",
+                            text = "User Name: ${user.name}",
+                            style = MaterialTheme.typography.headlineLarge
+                        )
+
+                        Spacer(modifier = Modifier.height(10.dp))
+
+                        Text(
+                            text = "Repository: ${user.url}",
                             style = MaterialTheme.typography.bodyMedium
                         )
 
-                        Text(text = user.name)
-                    }
+                        Spacer(modifier = Modifier.height(4.dp))
 
-                    Spacer(modifier = Modifier.height(5.dp))
+                        Text(
+                            text = "Event Url: ${user.eventUrl}",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+
+                        Spacer(modifier = Modifier.height(4.dp))
+
+                        Image(
+                            painter = rememberAsyncImagePainter(model = user.avatarUrl),
+                            contentDescription = null,
+                            modifier = Modifier.size(200.dp).clip(CircleShape)
+                        )
+                    }
                 }
             }
         }

@@ -46,6 +46,8 @@ data class UserDetailDTO(
 fun UserDetailDTO.toBO(): UserDetailBO {
     return UserDetailBO(
         name = login,
-        url = url
+        url = url,
+        eventUrl = eventsUrl,
+        avatarUrl = avatarUrl
     )
 }
