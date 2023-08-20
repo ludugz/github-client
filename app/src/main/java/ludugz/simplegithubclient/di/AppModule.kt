@@ -5,7 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ludugz.simplegithubclient.common.Constants
-import ludugz.simplegithubclient.data.repository.ClientApi
+import ludugz.simplegithubclient.data.datasource.remote.ClientApi
 import ludugz.simplegithubclient.data.repository.UserRepository
 import ludugz.simplegithubclient.data.repository.UserRepositoryImpl
 import okhttp3.OkHttpClient

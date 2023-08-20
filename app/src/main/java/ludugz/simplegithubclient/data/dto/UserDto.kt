@@ -1,10 +1,10 @@
-package ludugz.simplegithubclient.data.remote.dto
+package ludugz.simplegithubclient.data.dto
 
 
 import com.google.gson.annotations.SerializedName
 import ludugz.simplegithubclient.domain.models.UserDetailBO
 
-data class UserDetailDTO(
+data class UserDTO(
     @SerializedName("avatar_url")
     val avatarUrl: String = "",
     @SerializedName("events_url")
@@ -43,7 +43,7 @@ data class UserDetailDTO(
     val url: String = ""
 )
 
-fun UserDetailDTO.toBO(): UserDetailBO {
+fun UserDTO.toBO(): UserDetailBO {
     return UserDetailBO(
         name = login,
         url = url,

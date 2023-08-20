@@ -10,7 +10,6 @@ import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
 class GetUserByNameUseCaseTest {
-
     private lateinit var classUnderTest: GetUserByNameUseCase
 
     private lateinit var repository: UserRepository

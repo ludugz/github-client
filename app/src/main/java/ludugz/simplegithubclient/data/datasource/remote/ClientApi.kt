@@ -1,7 +1,6 @@
-package ludugz.simplegithubclient.data.repository
+package ludugz.simplegithubclient.data.datasource.remote
 
-import ludugz.simplegithubclient.data.remote.dto.UserDetailDTO
-import ludugz.simplegithubclient.data.remote.dto.UsersListDTO
+import ludugz.simplegithubclient.data.dto.UserDTO
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
@@ -12,12 +11,12 @@ interface ClientApi {
         "accept: application/vnd.github+json"
     )
     @GET("/users")
-    suspend fun getUsers(): UsersListDTO
+    suspend fun getUsers(): List<UserDTO>
 
     @Headers(
         "X-GitHub-Api-Version: 2022-11-28",
         "accept: application/vnd.github+json"
     )
     @GET("/users/{username}")
-    suspend fun getUserByName(@Path("username") userName: String): UserDetailDTO
+    suspend fun getUser(@Path("username") userName: String): UserDTO
 }
